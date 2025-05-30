@@ -6,17 +6,14 @@ from .models import Role, ExtendedPermission
 
 User = get_user_model()
 
+
 class PermissionSerializer(serializers.ModelSerializer):
+    name = serializers.CharField(source='permission.name', read_only=True)
+    codename = serializers.CharField(source='permission.codename', read_only=True)
+
     class Meta:
         model = ExtendedPermission
-        fields = ('id', 'name', 'codename', 'display_name', 'description')
-
-class RoleSerializer(serializers.ModelSerializer):
-    permissions = PermissionSerializer(many=True, read_only=True)
-    
-    class Meta:
-        model = Role
-        fields = ('id', 'name', 'display_name', 'description', 'permissions')
+        fields = ('id', 'name', 'codename', 'description')
 
 class UserSerializer(serializers.ModelSerializer):
     roles = RoleSerializer(source='groups', many=True, read_only=True)

@@ -1,4 +1,4 @@
-Django==5.0.2
+Django==4.2.23
 mysqlclient==2.2.3     # MySQL adapter
 python-dotenv==1.0.1    # For environment variable management
 gunicorn==21.2.0        # Production-grade WSGI server

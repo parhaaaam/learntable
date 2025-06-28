@@ -103,7 +103,7 @@ DATABASES = {
         'NAME': os.environ.get('MYSQL_DATABASE', 'django_db'),
         'USER': os.environ.get('MYSQL_USER', 'django'),
         'PASSWORD': os.environ.get('MYSQL_PASSWORD', 'django'),
-        'HOST': os.environ.get('MYSQL_HOST', 'db'),
+        'HOST': os.environ.get('MYSQL_HOST', 'localhost'),
         'PORT': os.environ.get('MYSQL_PORT', '3306'),
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
@@ -232,8 +232,12 @@ INTERNAL_IPS = [
 ]
 
 # Allow Docker internal network
-hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
-INTERNAL_IPS += ['.'.join(ip.split('.')[:-1] + ['1']) for ip in ips]
+try:
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS += ['.'.join(ip.split('.')[:-1] + ['1']) for ip in ips]
+except Exception:
+    # Fallback if hostname cannot be resolved
+    pass
 
 DEBUG_TOOLBAR_CONFIG = {
     'SHOW_TOOLBAR_CALLBACK': lambda request: DEBUG,

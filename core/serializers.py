@@ -15,6 +15,17 @@ class PermissionSerializer(serializers.ModelSerializer):
         model = ExtendedPermission
         fields = ('id', 'name', 'codename', 'description')
 
+
+class RoleSerializer(serializers.ModelSerializer):
+    permissions = PermissionSerializer(source='group.permissions', many=True, read_only=True)
+    name = serializers.CharField(source='group.name', read_only=True)
+
+    class Meta:
+        model = Role
+        fields = ('id', 'name', 'display_name', 'description', 'permissions', 'created_at', 'updated_at')
+        read_only_fields = ('created_at', 'updated_at')
+
+
 class UserSerializer(serializers.ModelSerializer):
     roles = RoleSerializer(source='groups', many=True, read_only=True)
     permissions = serializers.SerializerMethodField()
@@ -22,11 +33,11 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = (
-            'id', 
-            'email', 
-            'name', 
-            'gender', 
-            'birth', 
+            'id',
+            'email',
+            'name',
+            'gender',
+            'birth',
             'is_email_verified',
             'roles',
             'permissions'
@@ -34,7 +45,11 @@ class UserSerializer(serializers.ModelSerializer):
         read_only_fields = ('is_email_verified', 'roles', 'permissions')
 
     def get_permissions(self, obj):
-        return list(obj.get_all_permissions())
+        # Convert Permission objects to strings for JSON serialization
+        permissions = obj.get_all_permissions()
+        # Ensure all permissions are strings
+        return [str(perm) for perm in permissions]
+
 
 class RegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True, required=True, validators=[validate_password])
@@ -54,11 +69,13 @@ class RegisterSerializer(serializers.ModelSerializer):
         user = User.objects.create_user(**validated_data)
         return user
 
+
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
     def validate(self, attrs):
         data = super().validate(attrs)
         data['user'] = UserSerializer(self.user).data
         return data
+
 
 class ChangePasswordSerializer(serializers.Serializer):
     old_password = serializers.CharField(required=True)
@@ -70,13 +87,17 @@ class ChangePasswordSerializer(serializers.Serializer):
             raise serializers.ValidationError({"new_password": "Password fields didn't match."})
         return attrs
 
+
 class EmailVerificationSerializer(serializers.Serializer):
     token = serializers.CharField()
+
 
 class RoleAssignmentSerializer(serializers.Serializer):
     role = serializers.CharField()
     user_id = serializers.IntegerField()
 
+
 class PermissionAssignmentSerializer(serializers.Serializer):
     permissions = serializers.ListField(child=serializers.CharField())
-    role = serializers.CharField() 
+    role = serializers.CharField()
+

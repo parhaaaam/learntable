@@ -1,1 +1,1 @@
- 
+# This file makes the calendar_event directory a Python package 

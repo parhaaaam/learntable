@@ -1,14 +1,16 @@
-from .course_content import CourseContent, ContentType
+from .course import Course, Status
+from .assessment import Assessment, AssessmentType
+from .course_content import CourseContent
 from .course_instance import CourseInstance
 from .course_request import CourseRequest, RequestStatus
-from .assessment import Assessment, AssessmentType
 
 __all__ = [
-    'CourseContent',
-    'ContentType',
-    'CourseInstance',
-    'CourseRequest',
-    'RequestStatus',
+    'Course',
+    'Status', 
     'Assessment',
     'AssessmentType',
+    'CourseContent',
+    'CourseInstance',
+    'CourseRequest',
+    'RequestStatus'
 ] 

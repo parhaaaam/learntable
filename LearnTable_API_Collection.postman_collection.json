@@ -1,0 +1,1126 @@
+{
+	"info": {
+		"_postman_id": "learntable-api-collection",
+		"name": "LearnTable API Collection",
+		"description": "Complete API collection for LearnTable Learning Management System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"securepassword123\",\n    \"password_confirmation\": \"securepassword123\",\n    \"name\": \"John Doe\",\n    \"gender\": \"male\",\n    \"birth\": \"1990-01-01\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/auth/register/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"auth",
+								"register",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"securepassword123\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/auth/login/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"auth",
+								"login",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh\": \"{{refresh_token}}\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/auth/token/refresh/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"auth",
+								"token",
+								"refresh",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Verify Email",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"token\": \"your_verification_token_here\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/auth/verify-email/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"auth",
+								"verify-email",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Get User Profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/auth/profile/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"auth",
+								"profile",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Update User Profile",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated Name\",\n    \"gender\": \"female\",\n    \"birth\": \"1995-05-15\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/auth/profile/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"auth",
+								"profile",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"old_password\": \"securepassword123\",\n    \"new_password\": \"newsecurepassword456\",\n    \"new_password_confirmation\": \"newsecurepassword456\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/auth/change-password/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"auth",
+								"change-password",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "List Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/users/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"users",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/users/{{user_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"users",
+								"{{user_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Updated User Name\",\n    \"email\": \"updated@example.com\",\n    \"gender\": \"male\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/users/{{user_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"users",
+								"{{user_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/users/{{user_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"users",
+								"{{user_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Assign Role to User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/users/{{user_id}}/assign_role/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"users",
+								"{{user_id}}",
+								"assign_role",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Remove Role from User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"role\": \"admin\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/users/{{user_id}}/remove_role/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"users",
+								"{{user_id}}",
+								"remove_role",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Role Management",
+			"item": [
+				{
+					"name": "List Roles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/roles/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"roles",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"group\": {\n        \"name\": \"instructor\"\n    },\n    \"display_name\": \"Course Instructor\",\n    \"description\": \"Role for course instructors\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/roles/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"roles",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Role Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/roles/{{role_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"roles",
+								"{{role_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Role",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"display_name\": \"Updated Role Name\",\n    \"description\": \"Updated role description\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/roles/{{role_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"roles",
+								"{{role_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Role",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/roles/{{role_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"roles",
+								"{{role_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Assign Permissions to Role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"permissions\": [\"add_course\", \"change_course\", \"delete_course\"],\n    \"role\": \"instructor\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/core/roles/{{role_id}}/assign_permissions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"roles",
+								"{{role_id}}",
+								"assign_permissions",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Permission Management",
+			"item": [
+				{
+					"name": "List Permissions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/permissions/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"permissions",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Permission Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/core/permissions/{{permission_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"core",
+								"permissions",
+								"{{permission_id}}",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Management",
+			"item": [
+				{
+					"name": "List Courses",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/courses/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"courses",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Introduction to Python Programming\",\n    \"description\": \"Learn the basics of Python programming language\",\n    \"category\": \"programming\",\n    \"level\": \"beginner\",\n    \"duration\": 8,\n    \"price\": 99.99\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/courses/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"courses",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Get Course Details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/courses/{{course_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"courses",
+								"{{course_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Update Course",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Updated Course Title\",\n    \"description\": \"Updated course description\",\n    \"price\": 149.99\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/courses/{{course_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"courses",
+								"{{course_id}}",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Delete Course",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/courses/{{course_id}}/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"courses",
+								"{{course_id}}",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Content",
+			"item": [
+				{
+					"name": "List Course Contents",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-content/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"course-content",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Course Content",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course\": {{course_id}},\n    \"title\": \"Chapter 1: Introduction\",\n    \"content\": \"This is the content of chapter 1\",\n    \"content_type\": \"text\",\n    \"order\": 1\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/course-content/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"course-content",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Instance",
+			"item": [
+				{
+					"name": "List Course Instances",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-instance/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"course-instance",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Course Instance",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course\": {{course_id}},\n    \"instructor\": {{user_id}},\n    \"start_date\": \"2024-01-15\",\n    \"end_date\": \"2024-03-15\",\n    \"max_students\": 30,\n    \"status\": \"active\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/course-instance/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"course-instance",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Course Request",
+			"item": [
+				{
+					"name": "List Course Requests",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/course-request/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"course-request",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Course Request",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Advanced Machine Learning\",\n    \"description\": \"Request for an advanced machine learning course\",\n    \"category\": \"data_science\",\n    \"level\": \"advanced\",\n    \"reason\": \"Need for advanced ML skills in our team\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/course-request/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"course-request",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Assessment",
+			"item": [
+				{
+					"name": "List Assessments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/assessment/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"assessment",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Assessment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"course\": {{course_id}},\n    \"title\": \"Python Basics Quiz\",\n    \"description\": \"Assessment for Python fundamentals\",\n    \"duration\": 60,\n    \"passing_score\": 70,\n    \"total_questions\": 20\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/assessment/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"assessment",
+								""
+							]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Calendar Events",
+			"item": [
+				{
+					"name": "List Calendar Events",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{base_url}}/api/calendar-event/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"calendar-event",
+								""
+							]
+						}
+					}
+				},
+				{
+					"name": "Create Calendar Event",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Python Class Session 1\",\n    \"description\": \"First session of Python programming course\",\n    \"start_time\": \"2024-01-15T10:00:00Z\",\n    \"end_time\": \"2024-01-15T12:00:00Z\",\n    \"event_type\": \"class\",\n    \"location\": \"Room 101\"\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/api/calendar-event/",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"api",
+								"calendar-event",
+								""
+							]
+						}
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"// Auto-extract tokens from login response",
+					"if (pm.response.code === 200) {",
+					"    const responseJson = pm.response.json();",
+					"    if (responseJson.access) {",
+					"        pm.environment.set('access_token', responseJson.access);",
+					"    }",
+					"    if (responseJson.refresh) {",
+					"        pm.environment.set('refresh_token', responseJson.refresh);",
+					"    }",
+					"}"
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "refresh_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "user_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "role_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "permission_id",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "course_id",
+			"value": "",
+			"type": "string"
+		}
+	]
+} 

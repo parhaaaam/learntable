@@ -24,13 +24,12 @@
 							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"securepassword123\",\n    \"password_confirmation\": \"securepassword123\",\n    \"name\": \"John Doe\",\n    \"gender\": \"male\",\n    \"birth\": \"1990-01-01\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/auth/register/",
+							"raw": "{{base_url}}/api/auth/register/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"auth",
 								"register",
 								""
@@ -53,13 +52,12 @@
 							"raw": "{\n    \"email\": \"user@example.com\",\n    \"password\": \"securepassword123\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/auth/login/",
+							"raw": "{{base_url}}/api/auth/login/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"auth",
 								"login",
 								""
@@ -82,13 +80,12 @@
 							"raw": "{\n    \"refresh\": \"{{refresh_token}}\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/auth/token/refresh/",
+							"raw": "{{base_url}}/api/auth/token/refresh/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"auth",
 								"token",
 								"refresh",
@@ -112,13 +109,12 @@
 							"raw": "{\n    \"token\": \"your_verification_token_here\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/auth/verify-email/",
+							"raw": "{{base_url}}/api/auth/verify-email/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"auth",
 								"verify-email",
 								""
@@ -137,13 +133,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/auth/profile/",
+							"raw": "{{base_url}}/api/auth/profile/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"auth",
 								"profile",
 								""
@@ -170,13 +165,12 @@
 							"raw": "{\n    \"name\": \"Updated Name\",\n    \"gender\": \"female\",\n    \"birth\": \"1995-05-15\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/auth/profile/",
+							"raw": "{{base_url}}/api/auth/profile/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"auth",
 								"profile",
 								""
@@ -203,13 +197,12 @@
 							"raw": "{\n    \"old_password\": \"securepassword123\",\n    \"new_password\": \"newsecurepassword456\",\n    \"new_password_confirmation\": \"newsecurepassword456\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/auth/change-password/",
+							"raw": "{{base_url}}/api/auth/change-password/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"auth",
 								"change-password",
 								""
@@ -233,13 +226,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/users/",
+							"raw": "{{base_url}}/api/users/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"users",
 								""
 							]
@@ -257,13 +249,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/users/{{user_id}}/",
+							"raw": "{{base_url}}/api/users/{{user_id}}/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"users",
 								"{{user_id}}",
 								""
@@ -290,13 +281,12 @@
 							"raw": "{\n    \"name\": \"Updated User Name\",\n    \"email\": \"updated@example.com\",\n    \"gender\": \"male\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/users/{{user_id}}/",
+							"raw": "{{base_url}}/api/users/{{user_id}}/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"users",
 								"{{user_id}}",
 								""
@@ -315,13 +305,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/users/{{user_id}}/",
+							"raw": "{{base_url}}/api/users/{{user_id}}/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"users",
 								"{{user_id}}",
 								""
@@ -348,13 +337,12 @@
 							"raw": "{\n    \"role\": \"admin\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/users/{{user_id}}/assign_role/",
+							"raw": "{{base_url}}/api/users/{{user_id}}/assign_role/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"users",
 								"{{user_id}}",
 								"assign_role",
@@ -382,13 +370,12 @@
 							"raw": "{\n    \"role\": \"admin\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/users/{{user_id}}/remove_role/",
+							"raw": "{{base_url}}/api/users/{{user_id}}/remove_role/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"users",
 								"{{user_id}}",
 								"remove_role",
@@ -413,13 +400,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/roles/",
+							"raw": "{{base_url}}/api/roles/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"roles",
 								""
 							]
@@ -445,13 +431,12 @@
 							"raw": "{\n    \"group\": {\n        \"name\": \"instructor\"\n    },\n    \"display_name\": \"Course Instructor\",\n    \"description\": \"Role for course instructors\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/roles/",
+							"raw": "{{base_url}}/api/roles/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"roles",
 								""
 							]
@@ -469,13 +454,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/roles/{{role_id}}/",
+							"raw": "{{base_url}}/api/roles/{{role_id}}/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"roles",
 								"{{role_id}}",
 								""
@@ -502,13 +486,12 @@
 							"raw": "{\n    \"display_name\": \"Updated Role Name\",\n    \"description\": \"Updated role description\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/roles/{{role_id}}/",
+							"raw": "{{base_url}}/api/roles/{{role_id}}/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"roles",
 								"{{role_id}}",
 								""
@@ -527,13 +510,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/roles/{{role_id}}/",
+							"raw": "{{base_url}}/api/roles/{{role_id}}/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"roles",
 								"{{role_id}}",
 								""
@@ -560,13 +542,12 @@
 							"raw": "{\n    \"permissions\": [\"add_course\", \"change_course\", \"delete_course\"],\n    \"role\": \"instructor\"\n}"
 						},
 						"url": {
-							"raw": "{{base_url}}/api/core/roles/{{role_id}}/assign_permissions/",
+							"raw": "{{base_url}}/api/roles/{{role_id}}/assign_permissions/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"roles",
 								"{{role_id}}",
 								"assign_permissions",
@@ -591,13 +572,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/permissions/",
+							"raw": "{{base_url}}/api/permissions/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"permissions",
 								""
 							]
@@ -615,13 +595,12 @@
 							}
 						],
 						"url": {
-							"raw": "{{base_url}}/api/core/permissions/{{permission_id}}/",
+							"raw": "{{base_url}}/api/permissions/{{permission_id}}/",
 							"host": [
 								"{{base_url}}"
 							],
 							"path": [
 								"api",
-								"core",
 								"permissions",
 								"{{permission_id}}",
 								""

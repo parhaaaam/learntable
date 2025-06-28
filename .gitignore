@@ -58,4 +58,13 @@ docker-compose.override.yml
 node_modules/
 npm-debug.log*
 yarn-debug.log*
-yarn-error.log* celerybeat-schedule
+yarn-error.log*
+
+# Celery
+celerybeat-schedule
+celerybeat-schedule.db
+
+# Temporary files
+temp_files/
+*.tmp
+*.temp
